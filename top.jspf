@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/myapp/css/style.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="top">
+	<c:if test="${logStatus != 'Y'}">
+		<a href="/myapp/member/login">로그인</a>
+		<a href="/myapp/member/memberSign">회원가입</a>
+	</c:if>
+	<c:if test="${logStatus == 'Y'}">
+		${logNick}님 &nbsp; <a href="/myapp/member/logout">로그아웃</a>
+	</c:if>
+</div>
+<div class="logo">
+	<img class="i1" src="/myapp/img/baseball.png">
+	<a href="/myapp/"><b>KBOPARK</b></a>
+	<img class="i1" src="/myapp/img/baseball.png">
+</div>
+<script>
+	function menuOver(){
+		document.getElementById("s1").style.display="block";
+	}
+	function menuOut(){
+		document.getElementById("s1").style.display="none";
+	}
+</script>
+<div class="main">
+	<nav>
+		<ul id="menu">
+			<li><a href="/myapp/board/afree/boardList" class="a2"><b>니편내편내편니편</b></a></li>
+			<li onmouseenter="menuOver()" onmouseleave="menuOut()"><a href="#" class="a2"><b>우리편모여라</b></a>
+				<ul id="s1">
+					<li><a href="/myapp/board/kia/kiaboardList" class="a2">기아</a></li>
+					<li><a href="/myapp/board/hanwha/hanwhaboardList" class="a2">한화</a></li>
+					<li><a href="/myapp/board/lg/lgboardList" class="a2">LG</a></li>
+					<li><a href="/myapp/board/nc/ncboardList" class="a2">NC</a></li>
+					<li><a href="/myapp/board/ssg/ssgboardList" class="a2">SSG</a></li>
+					<li><a href="/myapp/board/doosan/doosanboardList" class="a2">두산</a></li>
+					<li><a href="/myapp/board/lotte/lotteboardList" class="a2">롯데</a></li>
+					<li><a href="/myapp/board/samsung/samsungboardList" class="a2">삼성</a></li>
+					<li><a href="/myapp/board/kiwoom/kiwoomboardList" class="a2">키움</a></li>
+					<li><a href="/myapp/board/kt/ktboardList" class="a2">KT</a></li>
+				</ul>
+			</li>
+			<li><a href="/myapp/board/trash/trashboardList" class="a2"><b>트래쉬토크</b></a></li>
+			<li><a href="/myapp/member/checkpwd" class="a2"><b>마이페이지</b></a></li>
+			<li><a href="/myapp/board/notice/noticeboardList" class="a2"><b>관리자페이지</b></a></li>
+		</ul>
+	</nav>
+</div>
